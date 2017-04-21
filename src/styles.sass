@@ -1,0 +1,56 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,400')
+
+*
+  padding: 0
+  margin: 0
+body
+  background: #eee
+.container
+  text-align: center
+  background: white
+  padding: 0
+  md-toolbar
+    justify-content: flex-end
+    align-items: center
+    height: 80px
+    &.header
+      height: 150px
+      justify-content: flex-end
+      align-items: flex-start
+      color: #ab8de0
+      box-sizing: border-box
+      padding: 10px 30px
+      font-weight: 100
+  h1
+    font-size: 2.3em
+md-select
+  margin: 25px 0
+table
+  text-align: center
+p
+  text-align: center
+  &.cur-val
+    color: #673ab7
+    font-size: 1.5em
+    width: 100%
+    span
+      font-size: 0.8em
+      color: #666
+md-card
+  width: 95%
+  margin: 10px auto
+md-tab-body, .mat-tab-body-content
+  height: 105%
+  overflow-y: hidden
+@media screen and (max-width: 600px)
+  .container
+    app-wymiana
+      md-toolbar
+        height: 230px
+        overflow: auto
+        justify-content: center
+        flex-direction: column
+        flex-wrap: wrap
+        md-select, input
+          display: block

@@ -1,0 +1,19 @@
+<md-toolbar>
+<form>
+  <md-select placeholder='Waluta: ' name="waluta" (ngModelChange)="getCurDaneInput($event)" [(ngModel)]="selectedValue">
+    <md-option [value]="dane?.base">{{dane?.base}}</md-option>
+    <md-option *ngFor="let keyValuePair of dane?.rates | mapToIterable" selected="keyValuePair?.key == selectedValue" [value]="keyValuePair?.key">
+      {{keyValuePair?.key}}
+    </md-option>
+  </md-select>
+</form>
+</md-toolbar>
+<md-card>
+<table class="table table-striped">
+  <tr *ngFor="let keyValuePair of dane?.rates | mapToIterable" >
+    <td>{{MalaWaluta(1/keyValuePair.val, keyValuePair.key).sym}}</td>
+    <td>{{(MalaWaluta(1/keyValuePair.val, keyValuePair.key).val).toFixed(2)}} {{selectedValue}}</td>
+  </tr>
+</table>
+<p>Kurs z dnia: {{dane?.date}}</p>
+</md-card>

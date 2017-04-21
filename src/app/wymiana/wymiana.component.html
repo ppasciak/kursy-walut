@@ -1,0 +1,21 @@
+<md-toolbar>
+  <form>
+      <md-select md-select placeholder='Z:' [(ngModel)]="zInput" name="waluta" (ngModelChange)="getCurDaneInput(zInput)">
+        <md-option [value]="dane?.base">{{dane?.base}}</md-option>
+        <md-option *ngFor="let keyValuePair of dane?.rates | mapToIterable" selected="keyValuePair.key == 'PLN'" [value]="keyValuePair.key" >
+          {{keyValuePair.key}}
+        </md-option>
+      </md-select>
+      <md-input-container class="example-full-width" *ngIf="doInput">
+            <input mdInput [(ngModel)]="kwota" placeholder="Kwota" name="Kwota" value="1">
+      </md-input-container>
+      <md-select placeholder='Do:' [(ngModel)]="doInput" name="waluta">
+        <md-option *ngFor="let keyValuePair of dane?.rates | mapToIterable" selected="keyValuePair.key == 'PLN'" [value]="[keyValuePair.val, keyValuePair.key]" >
+          {{keyValuePair.key}}
+        </md-option>
+      </md-select>
+  </form>
+</md-toolbar>
+<md-card  *ngIf="kwota">
+<p class="cur-val">{{(doInput[0]*kwota).toFixed(2)}} <span>{{doInput[1]}}</span></p>
+</md-card>
