@@ -8,7 +8,7 @@ import 'rxjs/add/operator/map';
 export class DaneService {
   constructor (private http: Http) {}
   getCurDane(val){
-    return this.http.get('http://api.fixer.io/latest?base='+val)
+    return this.http.get('https://api.fixer.io/latest?base='+val)
                     .map(res => res.json());
   }
 
