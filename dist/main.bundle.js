@@ -112,7 +112,7 @@ var DaneService = (function () {
         this.http = http;
     }
     DaneService.prototype.getCurDane = function (val) {
-        return this.http.get('http://api.fixer.io/latest?base=' + val)
+        return this.http.get('https://api.fixer.io/latest?base=' + val)
             .map(function (res) { return res.json(); });
     };
     return DaneService;
